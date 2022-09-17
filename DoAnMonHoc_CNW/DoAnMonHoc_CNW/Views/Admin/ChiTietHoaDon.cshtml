@@ -1,0 +1,45 @@
+﻿
+
+@model DoAnMonHoc_CNW.Models.ChiTietHD
+
+@{
+    ViewBag.Title = "ChiTietHoaDon";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+    <h2>CHI TIẾT HÓA ĐƠN</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+               Mã hóa đơn
+            </dt>
+            <dd>
+               @Model.MaHD
+            </dd>
+            <dt>
+                Mã sản phẩm
+            </dt>
+            <dd>
+               @Model.MaSP
+            </dd>
+            <dt>
+               Số lượng
+            </dt>
+            <dd style="width:600px; text-align:justify">
+               @Model.SoLuong
+            </dd>
+            <dt>
+                Thành tiền
+            </dt>
+            <dd>
+                @Model.ThanhTien
+            </dd>
+            
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sủa sản phẩm", "Suasp", new { id = Model.MaSP }) |
+        @Html.ActionLink("Quay lại trang trước", "DanhMucHD")
+    </p>
+}

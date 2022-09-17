@@ -1,0 +1,24 @@
+﻿
+
+@using DoAnMonHoc_CNW.Models
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4">
+        <div class="product-image-wrapper">
+
+            <div class="single-products">
+                <div class="productinfo text-center">
+                    <a href="@Url.Action("Details", "SanPham", new { id = item.MaSP })">
+                        <img alt="@item.TenSP" src="~/Content/SanPham/ImageProduct/@item.Anh" height="250px" width="200px" class="rounded" />
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

@@ -1,0 +1,128 @@
+﻿@using DoAnMonHoc_CNW.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoAnMonHoc_CNW.Models.SanPham>
+
+@helper Truncate(string input, int length)
+    {
+        if(input.Length < length)
+         {
+            @input
+         }
+        else
+         {
+            @input.Substring(0,length)<text>...</text>
+          }
+    }
+@{
+    ViewBag.Title = "sanpham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+
+    <h2>QUẢN LÝ SẢN PHẨM</h2>
+
+    <p>
+        @Html.ActionLink("Thêm mới", "ThemMoiSP")
+    </p>
+
+    <table class="table" border="1">
+
+        <tr>
+            <th style="width:100px">
+                @*Html.DisplayNameFor(model => model.First().MaSP)*@
+                Mã sản phẩm
+            </th>
+            <th style="width:250px">
+                @*Html.DisplayNameFor(model => model.First().TenSP)*@
+                Tên Sản Phẩm
+            </th>
+            <th style="width:100px">
+                @*Html.DisplayNameFor(model => model.First().DoiTuong)*@
+                Đối tượng
+            </th>
+            <th style="width:100px">
+                @*Html.DisplayNameFor(model => model.First().GiaBan)*@
+                Giá bán
+            </th>
+            <th style="width:250px">
+                @*Html.DisplayNameFor(model => model.First().GioiThieuSP)*@
+                Giới thiệu sản phẩm
+            </th>
+            <th style="width:80px">
+                @*Html.DisplayNameFor(model => model.First().Soluong)*@
+                Số lượng
+            </th>
+            <th style="width:100px">
+                @*Html.DisplayNameFor(model => model.First().Anh)*@
+                Ảnh
+            </th>
+            <th style="width:150px">
+                @*Html.DisplayNameFor(model => model.First().NgayCapNhat)*@
+                Ngày Cập Nhật
+            </th>
+            <th style="width:100px">
+                @*Html.DisplayNameFor(model => model.First().MaPL)*@
+                Mã phân loại
+            </th>
+            <th style="width:250px">
+                Chức năng
+            </th>
+
+
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td border="1">
+                    @Html.DisplayFor(modelItem => item.MaSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DoiTuong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaBan)
+                </td>
+                <td>
+                    @* @Truncate(item.GioiThieuSP,100)*@
+                    @Html.DisplayFor(modelItem => item.GioiThieuSP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluong)
+                </td>
+                <td>
+                    <img src="~/Content/SanPham/ImageProduct/@item.Anh" height="100" width="100" class="rounded" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayCapNhat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPL)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "suasp", new { id = item.MaSP }) |
+                    @Html.ActionLink("Chi tiết", "ChiTietSanPham", new { id = item.MaSP }) |
+                    @Html.ActionLink("Xóa", "XoaSanPham", new { id = item.MaSP })
+                </td>
+            </tr>
+
+        }
+    </table>
+
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, Page => Url.Action("SanPham", new { page = Page }))
+        
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+}

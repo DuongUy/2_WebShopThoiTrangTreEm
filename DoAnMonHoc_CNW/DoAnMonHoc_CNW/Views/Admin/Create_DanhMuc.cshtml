@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Create_DanhMuc";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+    <h2>Create</h2>
+    
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+    <table class="table">
+        <p>
+            Tên thể loại :
+            @Html.TextBox("TenPL") <font color=red>
+                @ViewData["Loi"]
+            </font>
+        </p>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </table>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "DanhMuc_SP")
+
+        
+        }

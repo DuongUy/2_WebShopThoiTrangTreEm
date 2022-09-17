@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DoAnMonHoc_CNW.Models.PhanLoai>
+
+    @foreach (var item in Model)
+    {
+<a style="text-decoration: none" href="@Url.Action("SPTheoPhanLoai","SanPham", new {id = item.MaPL})" class="list-group-item">
+ 
+    <h4 class="panel-title">@item.TenPL</h4>
+</a>
+    }

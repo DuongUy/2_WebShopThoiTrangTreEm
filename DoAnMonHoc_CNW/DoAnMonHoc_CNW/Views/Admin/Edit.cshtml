@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header {
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fields</legend>
+        <div class="editor-field">
+            Tên phân loại :
+            @Html.TextBox("TenPL")
+            @ViewData["Loi"]
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+@Html.ActionLink("Back to List", "DanhMucSP")
+</div>
+
+}

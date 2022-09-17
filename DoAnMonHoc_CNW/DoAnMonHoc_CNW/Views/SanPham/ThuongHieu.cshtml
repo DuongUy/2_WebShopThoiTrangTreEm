@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DoAnMonHoc_CNW.Models.ThuongHieu>
+
+@foreach (var item in Model)
+{
+<a style="text-decoration: none" href="@Url.Action("SPThuongHieu","SanPham", new {id = item.MaTH})" class="list-group-item">
+    <li> <span class="pull-right"></span>@item.TenTH</li>
+   
+</a>
+}

@@ -1,0 +1,49 @@
+﻿
+
+@{
+    ViewBag.Title = "Details";
+
+    Layout = "~/Views/Shared/TrangChu.cshtml";
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+
+
+
+        <div class="row">
+            <a href="@Url.Action("Details", "SanPham", new { id = item.MaSP })">
+                <img alt="@item.TenSP" src="~/Content/SanPham/ImageProduct/@item.Anh" height="250px" width="200px" class="rounded" />
+            </a>
+        </div>
+
+        <div class="row">
+            <br />
+            <h4 style="text-align: center; float:left ">
+                @item.TenSP
+            </h4>
+            <p></p>
+        </div>
+        <div class="row">
+            <p>15 review</p>
+            <p>
+                <span class="glyphicon glyphicon-star">
+
+                </span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+            </p>
+        </div>
+    </div>
+
+}
+
+
+
+
+

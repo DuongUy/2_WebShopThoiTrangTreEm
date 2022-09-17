@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "QL_DangKy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+
+
+
+<table class="table-bordered" align="center">
+    <h2 style="text-align: center"> Quản lý User </h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách:</td>
+            <td>
+                @Html.TextBox("HotenKH")
+                @ViewData["Loi1"]
+            </td>
+        </tr> 
+         <tr style="height:40px">
+            <td>Tên ĐĂNG NHẬP:</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi2"]
+            </td>
+        </tr> 
+        <tr style="height:40px">
+            <td>MẬT KHẨU:</td>
+            <td>
+                @Html.Password("Matkhau")
+                @ViewData["Loi3"]
+            </td>
+        </tr> 
+         <tr style="height:40px">
+            <td>MẬT KHẨU NHẬP LẠI:</td>
+            <td>
+                @Html.Password("Matkhaunhaplai")
+                @ViewData["Loi4"]
+            </td>
+        </tr> 
+        
+        <tr style="height:40px">
+            <td>ĐIỆN THOẠI:</td>
+            <td>
+                @Html.TextBox("Dienthoai")
+                @ViewData["Loi5"]
+            </td>
+        </tr> 
+        <tr style="height:40px">
+            <td>NGÀY SINH:</td>
+            <td>
+                <input type="date" name="Ngaysinh"/>
+            </td>
+        </tr> 
+         <tr style="height:40px">
+            <td>ĐĂNG KÝ:</td>
+            <td>
+                <input value="Đăng kí" name="Đăng ký" type="Submit" />
+            </td>
+        </tr> 
+    }
+</table>
+    }

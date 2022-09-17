@@ -1,0 +1,34 @@
+﻿
+
+
+
+@using DoAnMonHoc_CNW.Models
+@using PagedList.Mvc;
+
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "TongDoanhThu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section header{
+
+    <h2 class="container">Thống kê</h2>
+    <h3>Tổng doanh thu là: @ViewBag.tongdoanhthu</h3>
+    <h3>Tổng số hóa đơn đã bán: @ViewBag.slDon</h3>
+  
+
+
+}
+

@@ -1,0 +1,66 @@
+﻿@model DoAnMonHoc_CNW.Models.SanPham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+    <h2>CHI TIẾT SẢN PHẨM</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên Sản Phẩm:
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
+            <dt>
+                Giá bán
+            </dt>
+            <dd>
+                @string.Format("{0:0,0}", Model.GiaBan) VNĐ
+            </dd>
+            <dt>
+                Mô tả
+            </dt>
+            <dd style="width:600px; text-align:justify">
+                @Html.DisplayFor(model => model.GioiThieuSP)
+            </dd>
+            <dt>
+                Ảnh
+            </dt>
+            <dd>
+                <img src="~/Content/SanPham/ImageProduct/@Model.Anh" width="200px" height="250px" />
+            </dd>
+            <dt>
+                Ngày Cập Nhật
+            </dt>
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.NgayCapNhat)
+            </dd>
+            <dt>
+                Số lượng tồn
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Soluong)
+            </dd>
+            <dt>
+                Phân Loại Sản Phẩm
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhanLoai.TenPL)
+            </dd>
+            <dt>
+                Thương hiệu sản phẩm
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ThuongHieu.TenTH)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sủa sản phẩm", "Suasp", new { id = Model.MaSP }) |
+        @Html.ActionLink("Quay lại trang trước", "SanPham")
+    </p>
+}

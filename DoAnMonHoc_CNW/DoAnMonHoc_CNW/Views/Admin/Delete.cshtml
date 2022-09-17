@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section header{
+    <h2>Delete</h2>
+    <table class="table">
+        <legend>Fields</legend>
+        <div class="display-label">Mã Phân Loại @Html.Encode(Model.MaPL)</div>
+        <div class="display-label">Tên Phân Loại @Html.Encode(Model.TenPL)</div>
+    </table>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Back to List", "DanhMucSP")
+        </p>
+    }
+
+
+}

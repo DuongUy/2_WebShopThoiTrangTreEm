@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+<h2>Chi tiết danh mục </h2>
+        <fieldset>
+            <legend>Fields</legend>
+            <div class="display-label">Mã Danh Muc  @Model.MaPL</div>
+            <div class="display-label">Tên Danh Mục  @Model.TenPL</div>
+        </fieldset>
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.ActionLink("Xóa", "Delete", new { id = Model.MaPL })
+                @Html.ActionLink("Sửa", "Edit", new { id = Model.MaPL })
+                @Html.ActionLink("Back to list ", "DanhMucSP")
+            </p>
+        }
+    }

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "DanhMucSP";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section header{
+    <h2>Danh mục phân loại sản phẩm</h2>
+    <table class="table" border="1px">
+        <tr>
+            <th>
+                Mã danh mục sản phẩm
+            </th>
+            <th>
+                Tên danh mục
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaPL</td>
+                <td>@item.TenPL</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.MaPL })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.MaPL })
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaPL })
+
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("thêm mới", "Create_DanhMuc", "Admin")
+
+
+}

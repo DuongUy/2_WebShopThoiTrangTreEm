@@ -1,0 +1,49 @@
+﻿
+    @{
+        ViewBag.Title = "Dangnhap";
+      
+        Layout = "~/Views/Shared/TrangChu.cshtml";
+    }
+
+    <h6 style="text-align:center">@ViewBag.ThongBao</h6>
+
+    <h2 class="title text-center">Đăng nhập</h2>
+
+    <table class="table" align="center">
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td>TÊN ĐĂNG NHẬP</td>
+                <td>
+                    @Html.TextBox("TenDN")
+                    @ViewData["Loi1"]
+                </td>
+            </tr>
+
+            <tr style="height:40px">
+                <td>MẬT KHẨU</td>
+                <td>
+                    @Html.Password("Matkhau")
+                    @ViewData["Loi2"]
+                </td>
+            </tr>
+
+            <tr style="height:40px">
+
+                <td>
+
+                    <button class="btn btn-danger" style="color:white ; background-color:#e94261">
+                        ĐĂNG NHẬP
+                    </button>
+
+                </td>
+            </tr>
+
+
+
+
+        }
+    </table>

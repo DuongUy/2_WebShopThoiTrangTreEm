@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "ThuongHieucSP";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section header{
+
+
+    <h2>Danh mục Thương hiệu sản phẩm</h2>
+    <table class="table" border="1px">
+        <tr>
+            <th>
+                Mã thương hiệu
+            </th>
+            <th>
+                Tên thương hiệu
+            </th>
+            <th>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaTH</td>
+                <td>@item.TenTH</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit_ThuongHieu", new { id = item.MaTH })
+                    @Html.ActionLink("Chi tiết", "Details_ThuongHieu", new { id = item.MaTH })
+                    @Html.ActionLink("Xóa", "Delete_ThuongHieu", new { id = item.MaTH })
+
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("thêm mới", "Create_ThuongHieu", "Admin")
+ 
+}
+
